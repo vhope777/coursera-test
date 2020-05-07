@@ -15,7 +15,7 @@ function LunchCheckController($scope){
    function countmyText(myText){
    	var arr = myText.split(",");
    	var count=0;
-   	for (var i=0 ,i<arr.length ,i++){
+   	for (var i=0 ;i<arr.length ;i++){
    		if (arr[i]==" ")
    			count
    		else 
