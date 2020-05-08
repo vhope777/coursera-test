@@ -15,24 +15,27 @@ function LunchCheckController($scope){
    function countmyText(myText){
    	var arr = myText.split(",");
    	var count=0;
-   	for (var i=0 ;i<arr.length ;i++){
-   		if (arr[i]==" ")
-   			count
-   		else 
-   			count++
-   	}
-   	return count ;
-   }
+
+    if (myText){
+      for (var i=0 ;i<arr.length ;i++){
+        if (arr[i]==" ")
+          count
+        else 
+          count++
+      }
+    }
+    return count ;
+  }
 
    function messageGenerater(number){
-  		if (number == 0){
+  		if (number === 0){
   			return "Please enter data first"
   		}
-  		else if (number > 3){
-  			return "To much!"
+  		else if (number <= 3){
+  			return "Enjoy"
   		}
   		else
-  			return "Enjoy"
+  			return "To much!"
    }
 };
 
