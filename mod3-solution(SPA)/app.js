@@ -15,16 +15,16 @@
                 onRemove: '&'
             },
             controller: FoundItemsDirectiveController,
-            controllerAs: 'narrowIt',
+            controllerAs: 'narrow',
             bindToController: true
         };
         return ddo;
     }
 
     function FoundItemsDirectiveController() {
-        var narrowIt = this;
-        narrowIt.isEmptyItems = function() {
-            if (narrowIt.items !== undefined && narrowIt.items.length === 0) {
+        var narrow = this;
+        narrow.isEmptyItems = function() {
+            if (narrow.items !== undefined && narrow.items.length === 0) {
                 return true;
             }
             return false;
@@ -34,17 +34,17 @@
     NarrowItDownController.$inject = ['MenuSearchService'];
 
     function NarrowItDownController(MenuSearchService) {
-        var narrowIt = this;
-        narrowIt.narrowItDown = function() {
-            var promise = MenuSearchService.getMatchedMenuItems(narrowIt.search);
+        var narrow = this;
+        narrow.narrowItDown = function() {
+            var promise = MenuSearchService.getMatchedMenuItems(narrow.search);
             promise.then(function(result) {
-                narrowIt.found = result;
+                narrow.found = result;
             }).catch(function(e) {
                 console.log(e.message);
             });
         };
-        narrowIt.removeItem = function(itemIndex) {
-            narrowIt.found.splice(itemIndex, 1);
+        narrow.removeItem = function(itemIndex) {
+            narrow.found.splice(itemIndex, 1);
         }
     }
     MenuSearchService.$inject = ['$http', 'APIBasePath'];
