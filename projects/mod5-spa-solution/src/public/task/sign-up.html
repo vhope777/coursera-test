@@ -1,0 +1,25 @@
+<div class="container">
+    <form name="formSignup" class="form-signup" novalidate>
+        <h2 class="form-signup-heading"><span class="glyphicon glyphicon-user"></span> Sign Up</h2>
+        <label>First Name</label>
+          <input type="text" name="firstName" ng-model="signUpCtrl.user.firstName" class="form-control" placeholder="Your First Name" required>
+          <span class="error" ng-if="formSignup.firstName.$error.required && formSignup.firstName.$touched">First Name Required!</span>
+        <label>Last Name</label>
+          <input type="text" name="lastName" ng-model="signUpCtrl.user.lastName" class="form-control" placeholder="Your Last Name" required>
+          <span class="error" ng-if="formSignup.lastName.$error.required && formSignup.lastName.$touched">Last Name Required!</span>
+        <label>Email</label>
+          <input type="email" name="email" ng-model="signUpCtrl.user.email" class="form-control" placeholder="Email Address" required>
+          <span class="error" ng-if="formSignup.email.$invalid && formSignup.email.$touched">Enter a valid email address: handle@domain format</span>
+        <label>Phone</label>
+          <input type="text" name="phone" ng-model="signUpCtrl.user.phone" class="form-control" placeholder="Phone ###-###-####" pattern="(\d{3})-(\d{3})-(\d{4})" required>
+          <span class="error" ng-if="formSignup.phone.$invalid && formSignup.phone.$touched">Phone must be in the format ###-###-####</span>
+        <label>Favorite Dish</label>
+          <input type="text" name="menuShortName" ng-model="signUpCtrl.user.favMenu" ng-blur="signUpCtrl.processForm(false)" class="form-control" placeholder="Menu Short Name or Number">
+          <span class="error" ng-if="signUpCtrl.error">No such menu number exists</span>
+          <span class="valid" ng-if="signUpCtrl.valid"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Valid Menu Item!</span>
+        <button ng-disabled="formSignup.$invalid" ng-click="signUpCtrl.processForm(true)" class="btn btn-lg btn-success btn-block" type="submit" style="margin-top: 20px; background-color:#00695C">Sign Up</button>
+    </form>
+    <div ng-if="signUpCtrl.completed" class="col-md-5 col-centered alert alert-success alert-dismissible" role="alert">
+      Your information has been saved
+    </div>
+</div>

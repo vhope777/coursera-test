@@ -1,0 +1,98 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+h1{
+   font-family: 'Cinzel', serif;
+   text-align: center;
+   font-size: 45px;
+   padding-top: 45px;
+   padding-bottom: 45px;
+}
+
+.container{
+	background-color: white;
+    position: relative;
+   
+}
+ 
+#box1>div,#box2>div,#box3>div{
+	background-color: #008080;
+	border: 2px solid black;
+    position: relative;
+    
+}
+.container{
+	padding: 0px 45px  0px 45px;
+}
+
+.subbox{
+	font-size: 24px;
+	font-family: 'Dancing Script', cursive;
+	text-align: center;
+	border: 1px solid black;
+	width:30%;
+	background-color: #3CB371;
+	float:right;
+	position: absolute;
+	top:-1px;
+	right:-1px;
+    padding:5px 5px 5px 5px;
+}
+
+.container p{
+	font-family: 'Dancing Script', cursive;
+	text-align: left;
+	padding: 48px 10px 10px 10px;
+	line-height: 1.8;
+	font-size: 24px;
+	height: auto;
+	
+}
+
+@media(min-width: 768px) and (max-width: 991px) {
+	#box1,#box2 {
+		width:50%;
+	}
+	
+  	#box1,#box2,#box3{
+  		float: left;
+
+
+  	}
+  	#box1>div{
+  		margin-right: 20px;
+  	}
+  	#box1>div,#box2>div{
+		margin-bottom: 20px;
+		
+  	    overflow: hidden;
+	}
+	#box3{
+		margin-bottom: 60px;
+	}
+	
+}
+
+@media (min-width: 992px){
+	.container>div{
+  		float: left;
+  	    width:33.33%;
+  	    margin-bottom: 60px;
+  	    height:860px;
+  	    overflow: hidden;
+	}
+	#box1>div,#box2>div{
+		margin-right: 20px;
+	}
+}
+@media (max-width: 767px){
+	.container>div{
+	   margin-bottom: 20px;
+	}
+	#box3{
+		margin-bottom: 60px;
+	}
+}
