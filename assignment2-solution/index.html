@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" ng-app='ShoppingList'>
+  <head>
+    <title>Shopping List Check Off</title>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+      h1{
+        font-family: 'Cinzel', serif;
+        font-weight: bold;
+      }
+      .emptyMessage {
+        font-weight: bold;
+        font-size: 1.2em;
+        color:#800000;
+        font-family: 'Cinzel', serif;
+      }
+      li {
+        margin-bottom: 7px;
+        font-size: 1.2em;
+        font-family: 'Dancing Script', cursive;
+        font-weight: bold;
+      }
+      li > button {
+        margin-left: 6px;
+      }
+      button > span {
+        color: green;
+      }
+      h2{
+        font-family: 'Cinzel', serif;
+      }
+
+      .box1{
+        border-radius: 20px;
+        text-align: center;
+        background-color: #FFE4E1;
+        border : 1px solid #800000;
+        margin:10px 10px 10px 10px; 
+        height: 300px;
+        padding-top: 30px; 
+
+      }
+
+      .box2{
+        border-radius: 20px;
+        text-align: center;
+        background-color: #FFE4E1;
+        border : 1px solid #800000;
+        margin:10px 10px 10px 10px; 
+        height: 300px;
+        padding-top: 30px;
+      }
+    </style>
+  </head>
+<body>
+  <div class="container">
+  <h1>Shopping List Check Off</h1> 
+
+  <div class="row" ng-controller='ShoppingListController as List'>
+
+    <!-- To Buy List -->
+  <div class="col-md-6" >
+    <div class='box1'>
+     <h2>To Buy:</h2>
+     <ul>
+       <li ng-repeat='item in List.itemName'> {{item.quantity}} of {{item.name}}
+        <button class="btn btn-default" ng-click="List.itemShift($index)"><span class="glyphicon glyphicon-check"></span> Bought</button></li>
+     </ul>
+     <div class="emptyMessage" ng-if='List.itemName.length == 0'>Everything is bought!</div>
+    </div>
+  </div>
+    <!-- Already Bought List -->
+    <div class="col-md-6 ">
+    <div class='box2'>
+     <h2>Already Bought:</h2>
+     <ul>
+       <li ng-repeat='names in List.shiftedValue'>{{names.quantity}} of {{names.name}}
+        <button class="btn btn-default" ng-click="List.itemremove($index)"><span class="glyphicon glyphicon-edit"></span> Edit </button></li>
+     </ul>
+      <div class="emptyMessage" ng-if='List.shiftedValue.length == 0'>Nothing bought yet.</div>
+    </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
